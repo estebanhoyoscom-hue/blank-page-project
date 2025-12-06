@@ -67,13 +67,19 @@ const Register = () => {
               <Label htmlFor="age" className="text-sm">Edad</Label>
               <Input
                 id="age"
-                type="number"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
                 placeholder="Tu edad"
                 value={age}
-                onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, '');
+                  if (value === '' || (parseInt(value) >= 1 && parseInt(value) <= 120)) {
+                    setAge(value);
+                  }
+                }}
                 className="h-12 text-base"
-                min="1"
-                max="120"
+                maxLength={3}
                 required
               />
             </div>
