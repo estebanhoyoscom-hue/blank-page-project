@@ -9,6 +9,7 @@ import { Eye, EyeOff, Check } from "lucide-react";
 
 const Register = () => {
   const [name, setName] = useState("");
+  const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -58,6 +59,21 @@ const Register = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="h-12 text-base"
+                required
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <Label htmlFor="age" className="text-sm">Edad</Label>
+              <Input
+                id="age"
+                type="number"
+                placeholder="Tu edad"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                className="h-12 text-base"
+                min="1"
+                max="120"
                 required
               />
             </div>
