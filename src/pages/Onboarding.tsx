@@ -6,7 +6,7 @@ import BehumanLogo from "@/components/BehumanLogo";
 import OnboardingIntro from "@/components/onboarding/OnboardingIntro";
 import OnboardingComplete from "@/components/onboarding/OnboardingComplete";
 import OnboardingOption from "@/components/onboarding/OnboardingOption";
-import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type OnboardingPhase = "intro" | "questions" | "complete";
 
@@ -18,7 +18,6 @@ const Onboarding = () => {
   const [humanAge, setHumanAge] = useState("");
   const [humanGender, setHumanGender] = useState("");
   const [humanName, setHumanName] = useState("");
-  const [generateName, setGenerateName] = useState(false);
   const [lifeAxes, setLifeAxes] = useState<string[]>([]);
   const [tenYearGoals, setTenYearGoals] = useState<string[]>([]);
   const [shortTermGoals, setShortTermGoals] = useState<string[]>([]);
@@ -102,41 +101,12 @@ const Onboarding = () => {
               <h2 className="text-2xl font-bold text-foreground">Nombre del Human</h2>
               <p className="text-muted-foreground">Dale un nombre único a tu Human</p>
             </div>
-            <div className="space-y-4">
-              <Input
-                value={humanName}
-                onChange={(e) => {
-                  setHumanName(e.target.value);
-                  setGenerateName(false);
-                }}
-                placeholder="Escribe un nombre..."
-                className="text-lg py-6"
-                disabled={generateName}
-              />
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-border" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">o</span>
-                </div>
-              </div>
-              <Button
-                type="button"
-                variant={generateName ? "default" : "outline"}
-                className="w-full py-6"
-                onClick={() => {
-                  setGenerateName(!generateName);
-                  if (!generateName) {
-                    const names = ["Nova", "Atlas", "Sage", "Phoenix", "Aria", "Orion", "Luna", "Kai"];
-                    setHumanName(names[Math.floor(Math.random() * names.length)]);
-                  }
-                }}
-              >
-                <Sparkles className="w-4 h-4 mr-2" />
-                Generar automáticamente
-              </Button>
-            </div>
+            <Input
+              value={humanName}
+              onChange={(e) => setHumanName(e.target.value)}
+              placeholder="Escribe un nombre..."
+              className="text-lg py-6"
+            />
           </div>
         );
 
