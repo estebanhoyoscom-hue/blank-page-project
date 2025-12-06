@@ -29,15 +29,6 @@ const Login = () => {
               Tu camino hacia una vida más saludable comienza aquí
             </p>
           </div>
-          <div className="flex justify-center gap-2">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="w-2 h-2 rounded-full bg-primary/30"
-              />
-            ))}
-            <div className="w-2 h-2 rounded-full bg-primary" />
-          </div>
         </div>
       </div>
 
@@ -74,15 +65,7 @@ const Login = () => {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Contraseña</Label>
-                <Link
-                  to="#"
-                  className="text-sm text-primary hover:text-primary/80 transition-colors"
-                >
-                  ¿Olvidaste tu contraseña?
-                </Link>
-              </div>
+              <Label htmlFor="password">Contraseña</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -108,16 +91,9 @@ const Login = () => {
             </Button>
           </form>
 
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="bg-background px-4 text-muted-foreground">
-                ¿No tienes cuenta?
-              </span>
-            </div>
-          </div>
+          <p className="text-center text-muted-foreground">
+            ¿No tienes cuenta?
+          </p>
 
           <Link to="/register">
             <Button
