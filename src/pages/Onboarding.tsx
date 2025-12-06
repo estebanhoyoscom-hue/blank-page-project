@@ -5,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import BehumanLogo from "@/components/BehumanLogo";
 import OnboardingIntro from "@/components/onboarding/OnboardingIntro";
 import OnboardingComplete from "@/components/onboarding/OnboardingComplete";
-import OnboardingProgress from "@/components/onboarding/OnboardingProgress";
 import OnboardingOption from "@/components/onboarding/OnboardingOption";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 
@@ -317,21 +316,18 @@ const Onboarding = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
-            <BehumanLogo size={32} />
-            <span className="text-sm text-muted-foreground">Crear Human</span>
-          </div>
-          <OnboardingProgress currentStep={currentStep} totalSteps={totalSteps} />
-        </div>
-      </header>
-
       {/* Content */}
-      <main className="flex-1 px-4 py-6 overflow-y-auto">
-        <div className="max-w-lg mx-auto animate-fade-in">
-          {renderStep()}
+      <main className="flex-1 px-4 py-8 overflow-y-auto">
+        <div className="max-w-lg mx-auto">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <BehumanLogo size={48} />
+          </div>
+          
+          {/* Step content */}
+          <div className="animate-fade-in">
+            {renderStep()}
+          </div>
         </div>
       </main>
 
