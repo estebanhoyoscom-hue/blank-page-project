@@ -17,7 +17,6 @@ const Onboarding = () => {
   // Form data
   const [humanAge, setHumanAge] = useState("");
   const [humanGender, setHumanGender] = useState("");
-  const [voiceType, setVoiceType] = useState("");
   const [humanName, setHumanName] = useState("");
   const [generateName, setGenerateName] = useState(false);
   const [lifeAxes, setLifeAxes] = useState<string[]>([]);
@@ -26,7 +25,7 @@ const Onboarding = () => {
   const [hobbies, setHobbies] = useState<string[]>([]);
   const [emotionalHistory, setEmotionalHistory] = useState("");
 
-  const totalSteps = 9;
+  const totalSteps = 8;
 
   const handleMultiSelect = (
     value: string,
@@ -100,25 +99,6 @@ const Onboarding = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-foreground">¿Qué tipo de voz prefieres escuchar?</h2>
-            </div>
-            <div className="grid gap-3">
-              {["Voz suave", "Voz energética", "Voz madura", "Voz neutral", "Prefiero que la app elija"].map((voice) => (
-                <OnboardingOption
-                  key={voice}
-                  label={voice}
-                  selected={voiceType === voice}
-                  onClick={() => setVoiceType(voice)}
-                />
-              ))}
-            </div>
-          </div>
-        );
-
-      case 4:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
               <h2 className="text-2xl font-bold text-foreground">Nombre del Human</h2>
               <p className="text-muted-foreground">Dale un nombre único a tu Human</p>
             </div>
@@ -160,7 +140,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 5:
+      case 4:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -185,7 +165,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 6:
+      case 5:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -211,7 +191,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 7:
+      case 6:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -239,7 +219,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 8:
+      case 7:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -270,7 +250,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 9:
+      case 8:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -295,13 +275,12 @@ const Onboarding = () => {
     switch (currentStep) {
       case 1: return humanAge.length > 0;
       case 2: return humanGender.length > 0;
-      case 3: return voiceType.length > 0;
-      case 4: return humanName.trim().length > 0;
-      case 5: return lifeAxes.length > 0 && lifeAxes.length <= 3;
-      case 6: return tenYearGoals.length > 0;
-      case 7: return shortTermGoals.length > 0 && shortTermGoals.length <= 3;
-      case 8: return hobbies.length > 0 && hobbies.length <= 5;
-      case 9: return true; // Optional
+      case 3: return humanName.trim().length > 0;
+      case 4: return lifeAxes.length > 0 && lifeAxes.length <= 3;
+      case 5: return tenYearGoals.length > 0;
+      case 6: return shortTermGoals.length > 0 && shortTermGoals.length <= 3;
+      case 7: return hobbies.length > 0 && hobbies.length <= 5;
+      case 8: return true; // Optional
       default: return false;
     }
   };
