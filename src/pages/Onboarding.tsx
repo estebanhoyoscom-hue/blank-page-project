@@ -5,20 +5,17 @@ import { Textarea } from "@/components/ui/textarea";
 import BehumanLogo from "@/components/BehumanLogo";
 import OnboardingIntro from "@/components/onboarding/OnboardingIntro";
 import OnboardingComplete from "@/components/onboarding/OnboardingComplete";
-import HumanCreationAnimation from "@/components/onboarding/HumanCreationAnimation";
 import OnboardingProgress from "@/components/onboarding/OnboardingProgress";
 import OnboardingOption from "@/components/onboarding/OnboardingOption";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 
-type OnboardingPhase = "intro" | "preQuestions" | "creatingAnimation" | "questions" | "complete";
+type OnboardingPhase = "intro" | "questions" | "complete";
 
 const Onboarding = () => {
   const [phase, setPhase] = useState<OnboardingPhase>("intro");
   const [currentStep, setCurrentStep] = useState(1);
   
   // Form data
-  const [nickname, setNickname] = useState("");
-  const [birthday, setBirthday] = useState("");
   const [humanAge, setHumanAge] = useState("");
   const [humanGender, setHumanGender] = useState("");
   const [voiceType, setVoiceType] = useState("");
@@ -30,7 +27,7 @@ const Onboarding = () => {
   const [hobbies, setHobbies] = useState<string[]>([]);
   const [emotionalHistory, setEmotionalHistory] = useState("");
 
-  const totalSteps = 11;
+  const totalSteps = 9;
 
   const handleMultiSelect = (
     value: string,
@@ -46,10 +43,7 @@ const Onboarding = () => {
   };
 
   const handleNext = () => {
-    if (currentStep === 2) {
-      // After pre-questions, show creation animation
-      setPhase("creatingAnimation");
-    } else if (currentStep < totalSteps) {
+    if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     } else {
       setPhase("complete");
@@ -62,46 +56,9 @@ const Onboarding = () => {
     }
   };
 
-  const handleCreationAnimationComplete = () => {
-    setPhase("questions");
-    setCurrentStep(3);
-  };
-
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-foreground">¿Cómo quieres que tu Human te llame?</h2>
-              <p className="text-muted-foreground">Este será tu nombre dentro de behuman</p>
-            </div>
-            <Input
-              value={nickname}
-              onChange={(e) => setNickname(e.target.value)}
-              placeholder="Tu nombre o apodo..."
-              className="text-lg py-6"
-            />
-          </div>
-        );
-
-      case 2:
-        return (
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-foreground">¿Cuál es la fecha de tu cumpleaños?</h2>
-              <p className="text-muted-foreground">Esto nos ayuda a personalizar tu experiencia</p>
-            </div>
-            <Input
-              type="date"
-              value={birthday}
-              onChange={(e) => setBirthday(e.target.value)}
-              className="text-lg py-6"
-            />
-          </div>
-        );
-
-      case 3:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -121,7 +78,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 4:
+      case 2:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -140,7 +97,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 5:
+      case 3:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -159,7 +116,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 6:
+      case 4:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -204,7 +161,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 7:
+      case 5:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -229,7 +186,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 8:
+      case 6:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -255,7 +212,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 9:
+      case 7:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -283,7 +240,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 10:
+      case 8:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -314,7 +271,7 @@ const Onboarding = () => {
           </div>
         );
 
-      case 11:
+      case 9:
         return (
           <div className="space-y-6">
             <div className="space-y-2">
@@ -337,27 +294,21 @@ const Onboarding = () => {
 
   const canProceed = () => {
     switch (currentStep) {
-      case 1: return nickname.trim().length > 0;
-      case 2: return birthday.length > 0;
-      case 3: return humanAge.length > 0;
-      case 4: return humanGender.length > 0;
-      case 5: return voiceType.length > 0;
-      case 6: return humanName.trim().length > 0;
-      case 7: return lifeAxes.length > 0 && lifeAxes.length <= 3;
-      case 8: return tenYearGoals.length > 0;
-      case 9: return shortTermGoals.length > 0 && shortTermGoals.length <= 3;
-      case 10: return hobbies.length > 0 && hobbies.length <= 5;
-      case 11: return true; // Optional
+      case 1: return humanAge.length > 0;
+      case 2: return humanGender.length > 0;
+      case 3: return voiceType.length > 0;
+      case 4: return humanName.trim().length > 0;
+      case 5: return lifeAxes.length > 0 && lifeAxes.length <= 3;
+      case 6: return tenYearGoals.length > 0;
+      case 7: return shortTermGoals.length > 0 && shortTermGoals.length <= 3;
+      case 8: return hobbies.length > 0 && hobbies.length <= 5;
+      case 9: return true; // Optional
       default: return false;
     }
   };
 
   if (phase === "intro") {
-    return <OnboardingIntro onComplete={() => setPhase("preQuestions")} />;
-  }
-
-  if (phase === "creatingAnimation") {
-    return <HumanCreationAnimation onComplete={handleCreationAnimationComplete} />;
+    return <OnboardingIntro onComplete={() => setPhase("questions")} />;
   }
 
   if (phase === "complete") {
@@ -387,7 +338,7 @@ const Onboarding = () => {
       {/* Footer */}
       <footer className="sticky bottom-0 bg-background/95 backdrop-blur-sm border-t border-border px-4 py-4">
         <div className="max-w-lg mx-auto flex gap-3">
-          {currentStep > 1 && currentStep !== 3 && (
+          {currentStep > 1 && (
             <Button
               variant="outline"
               onClick={handleBack}
