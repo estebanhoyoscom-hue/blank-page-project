@@ -10,90 +10,105 @@ const areasData = [
   { name: "Ventas", data: { stress: 65, emotion: 60, anxiety: 52 } },
 ];
 
-// Datos de tendencia de estrés - trimestral Oct-Nov-Dic con comportamiento realista
+// Datos de tendencia de estrés - 4 trimestres del año con comportamiento realista
 const stressTrendData = {
   general: [
-    { month: "Oct", value: 58 },
-    { month: "Nov", value: 65 },
-    { month: "Dic", value: 71 },
+    { month: "Q1", value: 45 },
+    { month: "Q2", value: 52 },
+    { month: "Q3", value: 48 },
+    { month: "Q4", value: 71 },
   ],
   Marketing: [
-    { month: "Oct", value: 62 },
-    { month: "Nov", value: 68 },
-    { month: "Dic", value: 72 },
+    { month: "Q1", value: 50 },
+    { month: "Q2", value: 58 },
+    { month: "Q3", value: 55 },
+    { month: "Q4", value: 72 },
   ],
   "Recursos Humanos": [
-    { month: "Oct", value: 48 },
-    { month: "Nov", value: 52 },
-    { month: "Dic", value: 54 },
+    { month: "Q1", value: 38 },
+    { month: "Q2", value: 45 },
+    { month: "Q3", value: 42 },
+    { month: "Q4", value: 54 },
   ],
   Operación: [
-    { month: "Oct", value: 70 },
-    { month: "Nov", value: 75 },
-    { month: "Dic", value: 78 },
+    { month: "Q1", value: 55 },
+    { month: "Q2", value: 62 },
+    { month: "Q3", value: 58 },
+    { month: "Q4", value: 78 },
   ],
   Ventas: [
-    { month: "Oct", value: 55 },
-    { month: "Nov", value: 62 },
-    { month: "Dic", value: 65 },
+    { month: "Q1", value: 48 },
+    { month: "Q2", value: 68 },
+    { month: "Q3", value: 52 },
+    { month: "Q4", value: 65 },
   ],
 };
 
-// Datos de tendencia de estado emocional - trimestral
+// Datos de tendencia de estado emocional - 4 trimestres
 const emotionTrendData = {
   general: [
-    { month: "Oct", value: 68 },
-    { month: "Nov", value: 64 },
-    { month: "Dic", value: 62 },
+    { month: "Q1", value: 72 },
+    { month: "Q2", value: 68 },
+    { month: "Q3", value: 70 },
+    { month: "Q4", value: 62 },
   ],
   Marketing: [
-    { month: "Oct", value: 45 },
-    { month: "Nov", value: 41 },
-    { month: "Dic", value: 39 },
+    { month: "Q1", value: 52 },
+    { month: "Q2", value: 48 },
+    { month: "Q3", value: 50 },
+    { month: "Q4", value: 39 },
   ],
   "Recursos Humanos": [
-    { month: "Oct", value: 75 },
-    { month: "Nov", value: 72 },
-    { month: "Dic", value: 71 },
+    { month: "Q1", value: 78 },
+    { month: "Q2", value: 75 },
+    { month: "Q3", value: 76 },
+    { month: "Q4", value: 71 },
   ],
   Operación: [
-    { month: "Oct", value: 60 },
-    { month: "Nov", value: 57 },
-    { month: "Dic", value: 55 },
+    { month: "Q1", value: 65 },
+    { month: "Q2", value: 60 },
+    { month: "Q3", value: 62 },
+    { month: "Q4", value: 55 },
   ],
   Ventas: [
-    { month: "Oct", value: 65 },
-    { month: "Nov", value: 62 },
-    { month: "Dic", value: 60 },
+    { month: "Q1", value: 70 },
+    { month: "Q2", value: 72 },
+    { month: "Q3", value: 68 },
+    { month: "Q4", value: 60 },
   ],
 };
 
-// Datos de tendencia de ansiedad - trimestral
+// Datos de tendencia de ansiedad - 4 trimestres
 const anxietyTrendData = {
   general: [
-    { month: "Oct", value: 35 },
-    { month: "Nov", value: 42 },
-    { month: "Dic", value: 39 },
+    { month: "Q1", value: 32 },
+    { month: "Q2", value: 38 },
+    { month: "Q3", value: 35 },
+    { month: "Q4", value: 39 },
   ],
   Marketing: [
-    { month: "Oct", value: 55 },
-    { month: "Nov", value: 62 },
-    { month: "Dic", value: 61 },
+    { month: "Q1", value: 48 },
+    { month: "Q2", value: 52 },
+    { month: "Q3", value: 50 },
+    { month: "Q4", value: 61 },
   ],
   "Recursos Humanos": [
-    { month: "Oct", value: 42 },
-    { month: "Nov", value: 46 },
-    { month: "Dic", value: 48 },
+    { month: "Q1", value: 35 },
+    { month: "Q2", value: 40 },
+    { month: "Q3", value: 38 },
+    { month: "Q4", value: 48 },
   ],
   Operación: [
-    { month: "Oct", value: 58 },
-    { month: "Nov", value: 63 },
-    { month: "Dic", value: 65 },
+    { month: "Q1", value: 52 },
+    { month: "Q2", value: 58 },
+    { month: "Q3", value: 55 },
+    { month: "Q4", value: 65 },
   ],
   Ventas: [
-    { month: "Oct", value: 48 },
-    { month: "Nov", value: 53 },
-    { month: "Dic", value: 52 },
+    { month: "Q1", value: 40 },
+    { month: "Q2", value: 55 },
+    { month: "Q3", value: 45 },
+    { month: "Q4", value: 52 },
   ],
 };
 
