@@ -13,21 +13,21 @@ const areasData = [
 // Datos de tendencia de estrés (más aleatorios)
 const stressTrendData = {
   general: [
-    { month: "Ene", value: 58 },
+    { month: "Ene", value: 32 },
     { month: "Feb", value: 72 },
     { month: "Mar", value: 45 },
     { month: "Abr", value: 81 },
     { month: "May", value: 63 },
-    { month: "Jun", value: 55 },
+    { month: "Jun", value: 36 },
     { month: "Jul", value: 71 },
   ],
   Marketing: [
     { month: "Ene", value: 75 },
-    { month: "Feb", value: 52 },
+    { month: "Feb", value: 25 },
     { month: "Mar", value: 88 },
     { month: "Abr", value: 61 },
     { month: "May", value: 79 },
-    { month: "Jun", value: 45 },
+    { month: "Jun", value: 40 },
     { month: "Jul", value: 72 },
   ],
   "Recursos Humanos": [
@@ -36,7 +36,7 @@ const stressTrendData = {
     { month: "Mar", value: 35 },
     { month: "Abr", value: 58 },
     { month: "May", value: 47 },
-    { month: "Jun", value: 72 },
+    { month: "Jun", value: 31 },
     { month: "Jul", value: 54 },
   ],
   Operación: [
@@ -51,10 +51,10 @@ const stressTrendData = {
   Ventas: [
     { month: "Ene", value: 51 },
     { month: "Feb", value: 78 },
-    { month: "Mar", value: 42 },
+    { month: "Mar", value: 30 },
     { month: "Abr", value: 85 },
     { month: "May", value: 58 },
-    { month: "Jun", value: 69 },
+    { month: "Jun", value: 73 },
     { month: "Jul", value: 65 },
   ],
 };
