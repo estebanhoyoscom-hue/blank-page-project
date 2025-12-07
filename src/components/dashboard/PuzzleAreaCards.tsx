@@ -30,10 +30,9 @@ const AreaCard = ({ name, data }: AreaCardProps) => {
 
   return (
     <div
-      className={`relative cursor-pointer transition-all duration-300 hover:scale-105 hover:z-10 rounded-2xl border-2 ${colorClasses} p-4`}
+      className={`relative cursor-pointer transition-all duration-300 hover:scale-105 hover:z-10 rounded-2xl border-2 ${colorClasses} p-4 w-full h-40`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ width: "170px", height: "170px" }}
     >
       <div className="flex flex-col justify-center items-center h-full">
         <p className="text-sm font-semibold text-foreground text-center leading-tight">{name}</p>
@@ -74,16 +73,14 @@ interface PuzzleAreaCardsProps {
 
 const PuzzleAreaCards = ({ areas }: PuzzleAreaCardsProps) => {
   return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-2 gap-3">
-        {areas.slice(0, 4).map((area) => (
-          <AreaCard
-            key={area.name}
-            name={area.name}
-            data={area.data}
-          />
-        ))}
-      </div>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {areas.slice(0, 4).map((area) => (
+        <AreaCard
+          key={area.name}
+          name={area.name}
+          data={area.data}
+        />
+      ))}
     </div>
   );
 };

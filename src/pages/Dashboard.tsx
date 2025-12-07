@@ -214,60 +214,57 @@ const Dashboard = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-foreground">behuman</h1>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-8">
-        {/* Contenido principal - izquierda */}
-        <div className="flex-1">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <KpiCard
-              title="Estrés general de la compañía"
-              value={71}
-              subtitle="Índice promedio de estrés percibido"
-              showPercentage
-              invertColors
-            />
-            <KpiCard title="Ataques de ansiedad intervenidos" value={4} subtitle="Intervenciones realizadas este mes" />
-            <KpiCard
-              title="Alertas de casos críticos"
-              value={7}
-              subtitle="Casos que requieren atención inmediata"
-              forceColor="red"
-            />
-          </div>
+      {/* KPI Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <KpiCard
+          title="Estrés general de la compañía"
+          value={71}
+          subtitle="Índice promedio de estrés percibido"
+          showPercentage
+          invertColors
+        />
+        <KpiCard title="Ataques de ansiedad intervenidos" value={4} subtitle="Intervenciones realizadas este mes" />
+        <KpiCard
+          title="Alertas de casos críticos"
+          value={7}
+          subtitle="Casos que requieren atención inmediata"
+          forceColor="red"
+        />
+      </div>
 
-          <div className="mb-8">
-            <TrendChart
-              metrics={[
-                {
-                  key: "stress",
-                  label: "Estrés",
-                  color: "hsl(0, 70%, 50%)",
-                  isPercentage: true,
-                  data: stressTrendData,
-                },
-                {
-                  key: "emotion",
-                  label: "Estado emocional",
-                  color: "hsl(142, 70%, 45%)",
-                  isPercentage: false,
-                  data: emotionTrendData,
-                },
-                {
-                  key: "anxiety",
-                  label: "Ansiedad",
-                  color: "hsl(45, 90%, 50%)",
-                  isPercentage: true,
-                  data: anxietyTrendData,
-                },
-              ]}
-            />
-          </div>
-        </div>
+      {/* Trend Chart */}
+      <div className="mb-8">
+        <TrendChart
+          metrics={[
+            {
+              key: "stress",
+              label: "Estrés",
+              color: "hsl(0, 70%, 50%)",
+              isPercentage: true,
+              data: stressTrendData,
+            },
+            {
+              key: "emotion",
+              label: "Estado emocional",
+              color: "hsl(142, 70%, 45%)",
+              isPercentage: false,
+              data: emotionTrendData,
+            },
+            {
+              key: "anxiety",
+              label: "Ansiedad",
+              color: "hsl(45, 90%, 50%)",
+              isPercentage: true,
+              data: anxietyTrendData,
+            },
+          ]}
+        />
+      </div>
 
-        {/* Rompecabezas - derecha */}
-        <div className="lg:w-80 xl:w-96">
-          <h2 className="text-xl font-semibold text-foreground mb-6">Por área</h2>
-          <PuzzleAreaCards areas={areasData} />
-        </div>
+      {/* Áreas - ahora ocupa todo el ancho */}
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold text-foreground mb-6">Por área</h2>
+        <PuzzleAreaCards areas={areasData} />
       </div>
 
       {/* Sección de Recomendaciones */}
