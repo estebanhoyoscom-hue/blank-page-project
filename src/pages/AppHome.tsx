@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import HumanAvatar from "@/components/app/HumanAvatar";
@@ -58,10 +58,9 @@ const AppHome = () => {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => navigate("/")}
           className="text-muted-foreground"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <Menu className="w-5 h-5" />
         </Button>
         <CallStatus 
           humanName={humanName} 
