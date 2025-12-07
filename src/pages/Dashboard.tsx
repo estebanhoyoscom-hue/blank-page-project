@@ -12,37 +12,45 @@ const areasData = [
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-background p-6 md:p-10 relative">
-      <div className="absolute top-4 right-4 md:top-6 md:right-6">
+    <div className="min-h-screen bg-background p-6 md:p-10">
+      {/* Header con logo y título */}
+      <div className="flex items-center gap-3 mb-8">
         <BehumanLogo size={40} />
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground">BeHuman</h1>
       </div>
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Dashboard emocional de la compañía</h1>
-        <p className="text-muted-foreground mb-8">
-          Este dashboard muestra el estado emocional de la compañía a partir de datos psicométricos anónimos de los
-          empleados.
-        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <KpiCard
-            title="Estrés general de la compañía"
-            value={68}
-            subtitle="Índice promedio de estrés percibido (0–100)"
-          />
-          <KpiCard
-            title="Estado emocional promedio"
-            value={62}
-            subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
-          />
-          <KpiCard title="Ansiedad general" value={55} subtitle="Nivel promedio de ansiedad (0–100)" />
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Contenido principal - izquierda */}
+        <div className="flex-1">
+          <p className="text-muted-foreground mb-8">
+            Este dashboard muestra el estado emocional de la compañía a partir de datos psicométricos anónimos de los
+            empleados.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <KpiCard
+              title="Estrés general de la compañía"
+              value={68}
+              subtitle="Índice promedio de estrés percibido (0–100)"
+            />
+            <KpiCard
+              title="Estado emocional promedio"
+              value={62}
+              subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
+            />
+            <KpiCard title="Ansiedad general" value={55} subtitle="Nivel promedio de ansiedad (0–100)" />
+          </div>
+
+          <div className="mb-8">
+            <StressTrendChart />
+          </div>
         </div>
 
-        <div className="mb-8">
-          <StressTrendChart />
+        {/* Rompecabezas - derecha */}
+        <div className="lg:w-80 xl:w-96">
+          <h2 className="text-xl font-semibold text-foreground mb-6">Por área</h2>
+          <PuzzleAreaCards areas={areasData} />
         </div>
-
-        <h2 className="text-xl font-semibold text-foreground mb-6">Por área</h2>
-        <PuzzleAreaCards areas={areasData} />
       </div>
     </div>
   );
