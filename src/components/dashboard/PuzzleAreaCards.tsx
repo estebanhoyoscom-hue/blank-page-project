@@ -33,7 +33,7 @@ const AreaCard = ({ name, data }: AreaCardProps) => {
       className={`relative cursor-pointer transition-all duration-300 hover:scale-105 hover:z-10 rounded-2xl border-2 ${colorClasses} p-4`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ width: "140px", height: "140px" }}
+      style={{ width: "170px", height: "170px" }}
     >
       <div className="flex flex-col justify-center items-center h-full">
         <p className="text-sm font-semibold text-foreground text-center leading-tight">{name}</p>
