@@ -196,24 +196,31 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-6 mb-8">
+          <div className="mb-8">
             <TrendChart
-              title="Tendencia de estrés"
-              metricLabel="Estrés"
-              color="hsl(0, 70%, 50%)"
-              data={stressTrendData}
-            />
-            <TrendChart
-              title="Tendencia de estado emocional"
-              metricLabel="Estado emocional"
-              color="hsl(142, 70%, 45%)"
-              data={emotionTrendData}
-            />
-            <TrendChart
-              title="Tendencia de ansiedad"
-              metricLabel="Ansiedad"
-              color="hsl(45, 90%, 50%)"
-              data={anxietyTrendData}
+              metrics={[
+                {
+                  key: "stress",
+                  label: "Estrés",
+                  color: "hsl(0, 70%, 50%)",
+                  isPercentage: true,
+                  data: stressTrendData,
+                },
+                {
+                  key: "emotion",
+                  label: "Estado emocional",
+                  color: "hsl(142, 70%, 45%)",
+                  isPercentage: false,
+                  data: emotionTrendData,
+                },
+                {
+                  key: "anxiety",
+                  label: "Ansiedad",
+                  color: "hsl(45, 90%, 50%)",
+                  isPercentage: true,
+                  data: anxietyTrendData,
+                },
+              ]}
             />
           </div>
         </div>
