@@ -4,10 +4,10 @@ import TrendChart from "@/components/dashboard/TrendChart";
 import BehumanLogo from "@/components/BehumanLogo";
 
 const areasData = [
-  { name: "Marketing", data: { stress: 72, emotion: 39, anxiety: 61 } },
-  { name: "Recursos Humanos", data: { stress: 54, emotion: 71, anxiety: 48 } },
-  { name: "Operación", data: { stress: 78, emotion: 55, anxiety: 65 } },
-  { name: "Ventas", data: { stress: 65, emotion: 60, anxiety: 52 } },
+  { name: "Marketing", data: { anxietyAttacks: 2, criticalAlerts: 3 } },
+  { name: "Recursos Humanos", data: { anxietyAttacks: 1, criticalAlerts: 1 } },
+  { name: "Operación", data: { anxietyAttacks: 3, criticalAlerts: 4 } },
+  { name: "Ventas", data: { anxietyAttacks: 1, criticalAlerts: 1 } },
 ];
 
 // Datos de tendencia de estrés (más aleatorios)
@@ -179,15 +179,14 @@ const Dashboard = () => {
               invertColors
             />
             <KpiCard
-              title="Estado emocional promedio"
-              value={62}
-              subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
+              title="Ataques de ansiedad intervenido"
+              value={7}
+              subtitle="Intervenciones realizadas este mes"
             />
             <KpiCard
-              title="Ansiedad general"
-              value={39}
-              subtitle="Nivel promedio de ansiedad"
-              showPercentage
+              title="Alertas críticas"
+              value={9}
+              subtitle="Alertas que requieren atención"
               invertColors
             />
           </div>
