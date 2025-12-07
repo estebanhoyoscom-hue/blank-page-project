@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,6 +8,7 @@ import BehumanLogo from "@/components/BehumanLogo";
 import { Eye, EyeOff, Check } from "lucide-react";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
@@ -17,8 +18,8 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Frontend only - no backend logic
-    console.log("Register attempt:", { name, email });
+    // Frontend only - redirect to onboarding
+    navigate("/onboarding");
   };
 
   const passwordRequirements = [
