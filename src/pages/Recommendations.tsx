@@ -128,7 +128,7 @@ const Recommendations = () => {
       <aside className="w-64 bg-card border-r border-border p-6 flex flex-col">
         <div className="flex items-center gap-3 mb-8">
           <BehumanLogo size={40} />
-          <span className="text-xl font-bold text-foreground">BeHuman</span>
+          <span className="text-xl font-bold text-foreground">behuman</span>
         </div>
         
         <div className="space-y-2 mb-8">
@@ -163,7 +163,7 @@ const Recommendations = () => {
           <div className="space-y-2 mb-8">
             <div className="flex justify-between text-sm">
               <span className="font-semibold text-green-500">${spentBudget.toLocaleString()}</span>
-              <span className="font-bold text-foreground text-lg">${monthlyBudget.toLocaleString()}</span>
+              <span className="font-bold text-foreground text-2xl">${monthlyBudget.toLocaleString()}</span>
             </div>
             <Progress value={spentPercentage} className="h-3 [&>div]:bg-green-500" />
           </div>
