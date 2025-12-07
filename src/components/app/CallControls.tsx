@@ -26,21 +26,7 @@ const CallControls = ({
   const isInCall = callState === "in-call" || callState === "connecting";
 
   return (
-    <div className="flex items-center justify-center gap-4 p-4">
-      {/* Mute button */}
-      <Button
-        variant="outline"
-        size="icon"
-        className={cn(
-          "w-14 h-14 rounded-full transition-all",
-          isMuted && "bg-destructive/10 border-destructive text-destructive"
-        )}
-        onClick={onToggleMute}
-        disabled={!isInCall}
-      >
-        {isMuted ? <MicOff className="w-6 h-6" /> : <Mic className="w-6 h-6" />}
-      </Button>
-
+    <div className="flex items-center justify-center p-4">
       {/* Call/Hang up button */}
       {isInCall ? (
         <Button
@@ -59,20 +45,6 @@ const CallControls = ({
           <Phone className="w-8 h-8" />
         </Button>
       )}
-
-      {/* Camera button */}
-      <Button
-        variant="outline"
-        size="icon"
-        className={cn(
-          "w-14 h-14 rounded-full transition-all",
-          !isCameraOn && "bg-muted border-muted-foreground/30 text-muted-foreground"
-        )}
-        onClick={onToggleCamera}
-        disabled={!isInCall}
-      >
-        {isCameraOn ? <Video className="w-6 h-6" /> : <VideoOff className="w-6 h-6" />}
-      </Button>
     </div>
   );
 };
