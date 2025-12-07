@@ -50,19 +50,7 @@ const HumanAvatar = ({ state, gender = "neutral", className }: HumanAvatarProps)
           <div className={cn(
             "w-24 h-24 rounded-full bg-gradient-to-b from-primary/40 to-primary/60 mb-2 mx-auto transition-all duration-500",
             isActive && "shadow-[0_0_60px_rgba(var(--primary),0.4)]"
-          )}>
-            {/* Eyes placeholder */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 flex gap-4">
-              <div className={cn(
-                "w-3 h-3 rounded-full bg-background/80 transition-all",
-                isActive && "animate-pulse"
-              )} />
-              <div className={cn(
-                "w-3 h-3 rounded-full bg-background/80 transition-all",
-                isActive && "animate-pulse"
-              )} />
-            </div>
-          </div>
+          )} />
 
           {/* Body */}
           <div className="w-32 h-40 rounded-t-full bg-gradient-to-b from-primary/30 to-primary/50 mx-auto" />

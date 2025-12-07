@@ -32,10 +32,6 @@ const AppHome = () => {
     // Simulate connection delay
     setTimeout(() => {
       setCallState("in-call");
-      // Simulate transcription for demo
-      setTimeout(() => {
-        setTranscription("Hola, ¿cómo te puedo ayudar hoy?");
-      }, 2000);
     }, 2000);
   };
 
@@ -82,21 +78,7 @@ const AppHome = () => {
             state={callState} 
             gender={humanGender}
           />
-          
-          {/* Transcription overlay */}
-          <TranscriptionOverlay 
-            text={transcription}
-            isVisible={callState === "in-call" && !!transcription}
-          />
         </div>
-
-        {/* User video preview - positioned absolute */}
-        {(callState === "in-call" || callState === "connecting") && (
-          <UserVideoPreview 
-            isCameraOn={isCameraOn}
-            className="absolute bottom-32 right-6"
-          />
-        )}
       </main>
 
       {/* Call controls */}
