@@ -24,84 +24,12 @@ const getEmotionTextColor = (value: number) => {
   return "text-green-600";
 };
 
-// SVG puzzle piece paths with proper connectors
+// SVG puzzle piece paths
 const puzzlePaths = {
-  // Marketing (top-left): bump right, bump bottom
-  "top-left": `
-    M 0 0 
-    L 100 0 
-    L 100 35 
-    C 100 35, 100 40, 108 40 
-    C 108 40, 120 40, 120 50 
-    C 120 60, 108 60, 108 60 
-    C 100 60, 100 65, 100 65 
-    L 100 100 
-    L 65 100 
-    C 65 100, 60 100, 60 108 
-    C 60 108, 60 120, 50 120 
-    C 40 120, 40 108, 40 108 
-    C 40 100, 35 100, 35 100 
-    L 0 100 
-    L 0 0 
-    Z
-  `,
-  // RRHH (top-right): hole left, bump bottom
-  "top-right": `
-    M 0 0 
-    L 100 0 
-    L 100 100 
-    L 65 100 
-    C 65 100, 60 100, 60 108 
-    C 60 108, 60 120, 50 120 
-    C 40 120, 40 108, 40 108 
-    C 40 100, 35 100, 35 100 
-    L 0 100 
-    L 0 65 
-    C 0 65, 0 60, -8 60 
-    C -8 60, -20 60, -20 50 
-    C -20 40, -8 40, -8 40 
-    C 0 40, 0 35, 0 35 
-    L 0 0 
-    Z
-  `,
-  // Operación (bottom-left): hole top, bump right
-  "bottom-left": `
-    M 0 0 
-    L 35 0 
-    C 35 0, 40 0, 40 -8 
-    C 40 -8, 40 -20, 50 -20 
-    C 60 -20, 60 -8, 60 -8 
-    C 60 0, 65 0, 65 0 
-    L 100 0 
-    L 100 35 
-    C 100 35, 100 40, 108 40 
-    C 108 40, 120 40, 120 50 
-    C 120 60, 108 60, 108 60 
-    C 100 60, 100 65, 100 65 
-    L 100 100 
-    L 0 100 
-    L 0 0 
-    Z
-  `,
-  // Ventas (bottom-right): hole left, hole top
-  "bottom-right": `
-    M 0 0 
-    L 35 0 
-    C 35 0, 40 0, 40 -8 
-    C 40 -8, 40 -20, 50 -20 
-    C 60 -20, 60 -8, 60 -8 
-    C 60 0, 65 0, 65 0 
-    L 100 0 
-    L 100 100 
-    L 0 100 
-    L 0 65 
-    C 0 65, 0 60, -8 60 
-    C -8 60, -20 60, -20 50 
-    C -20 40, -8 40, -8 40 
-    C 0 40, 0 35, 0 35 
-    L 0 0 
-    Z
-  `,
+  "top-left": "M 0 0 L 120 0 L 120 50 C 130 50, 130 70, 120 70 L 120 120 L 70 120 C 70 130, 50 130, 50 120 L 0 120 Z",
+  "top-right": "M 0 0 L 120 0 L 120 120 L 70 120 C 70 130, 50 130, 50 120 L 0 120 L 0 70 C -10 70, -10 50, 0 50 Z",
+  "bottom-left": "M 0 0 L 50 0 C 50 -10, 70 -10, 70 0 L 120 0 L 120 50 C 130 50, 130 70, 120 70 L 120 120 L 0 120 Z",
+  "bottom-right": "M 0 0 L 50 0 C 50 -10, 70 -10, 70 0 L 120 0 L 120 120 L 0 120 L 0 70 C -10 70, -10 50, 0 50 Z",
 };
 
 const PuzzleCard = ({ name, data, position }: PuzzleCardProps) => {
@@ -114,10 +42,10 @@ const PuzzleCard = ({ name, data, position }: PuzzleCardProps) => {
       className="relative cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ width: "140px", height: "140px" }}
+      style={{ width: "160px", height: "160px" }}
     >
       <svg
-        viewBox="-30 -30 160 160"
+        viewBox="-10 -10 140 140"
         className="absolute inset-0 w-full h-full drop-shadow-md"
         style={{ overflow: "visible" }}
       >
@@ -179,7 +107,9 @@ const PuzzleAreaCards = ({ areas }: PuzzleAreaCardsProps) => {
       <div 
         className="grid grid-cols-2"
         style={{ 
-          gap: "10px",
+          gap: "0px",
+          marginLeft: "-10px",
+          marginTop: "-10px"
         }}
       >
         {areas.slice(0, 4).map((area, index) => (
