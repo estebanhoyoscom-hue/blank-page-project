@@ -33,8 +33,8 @@ const pendingRecommendations: PendingRecommendation[] = [
   {
     id: "1",
     title: "Paquete para partido de baloncesto",
-    area: "Toda la empresa",
-    cost: 2500,
+    area: "Marketing",
+    cost: 100,
     priority: "media",
   },
 ];
