@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check, X, ChevronRight } from "lucide-react";
 import BehumanLogo from "@/components/BehumanLogo";
 import {
   Table,
@@ -159,32 +159,18 @@ const Recommendations = () => {
           {/* Budget Section */}
           <div className="flex items-center gap-8 mb-8 bg-card rounded-lg border border-border p-6">
             <div className="flex-1">
-              <h2 className="text-xl font-bold text-foreground mb-2">Presupuesto de Inversión</h2>
-              <div className="space-y-1 mb-4">
-                <p className="text-sm text-muted-foreground">
-                  Total: <span className="font-semibold text-foreground">${monthlyBudget.toLocaleString()}</span>
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Invertido: <span className="font-semibold text-primary">${spentBudget.toLocaleString()}</span>
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Disponible: <span className="font-semibold text-foreground">${availableBudget.toLocaleString()}</span>
-                </p>
-              </div>
+              <h2 className="text-xl font-bold text-foreground mb-4">Inversión Mensual Diciembre</h2>
               <div className="space-y-2">
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>Invertido</span>
-                  <span>{spentPercentage.toFixed(0)}%</span>
+                <div className="flex justify-between text-sm">
+                  <span className="font-semibold text-primary">${spentBudget.toLocaleString()}</span>
+                  <span className="font-semibold text-foreground">${monthlyBudget.toLocaleString()}</span>
                 </div>
                 <Progress value={spentPercentage} className="h-3" />
               </div>
             </div>
           </div>
 
-          <h1 className="text-2xl font-bold text-foreground mb-2">Inversión Mensual Diciembre</h1>
-          <p className="text-muted-foreground mb-6">
-            Haz clic en una petición para aprobar o rechazar el presupuesto.
-          </p>
+          <h1 className="text-2xl font-bold text-foreground mb-6">Peticiones Pendientes</h1>
 
           <div className="bg-card rounded-lg border border-border overflow-hidden">
             <Table>
@@ -194,6 +180,7 @@ const Recommendations = () => {
                   <TableHead>Área</TableHead>
                   <TableHead>Costo</TableHead>
                   <TableHead>Prioridad</TableHead>
+                  <TableHead className="w-10"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -212,11 +199,14 @@ const Recommendations = () => {
                           {rec.priority.charAt(0).toUpperCase() + rec.priority.slice(1)}
                         </Badge>
                       </TableCell>
+                      <TableCell>
+                        <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                      </TableCell>
                     </TableRow>
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                    <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
                       No hay peticiones pendientes
                     </TableCell>
                   </TableRow>
