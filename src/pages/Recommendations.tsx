@@ -77,6 +77,13 @@ const Recommendations = () => {
   const [monthlyBudget] = useState(5000);
   const [availableBudget, setAvailableBudget] = useState(5000);
   const [recommendations, setRecommendations] = useState(pendingRecommendations);
+  const [approvedByArea, setApprovedByArea] = useState<Record<string, number>>({
+    "Marketing": 0,
+    "Recursos Humanos": 0,
+    "Operaciones": 0,
+    "Ventas": 0,
+    "Toda la empresa": 0,
+  });
   const [selectedRecommendation, setSelectedRecommendation] = useState<PendingRecommendation | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [resultDialog, setResultDialog] = useState<{ open: boolean; approved: boolean }>({ open: false, approved: false });
@@ -92,6 +99,10 @@ const Recommendations = () => {
   const handleApprove = () => {
     if (selectedRecommendation) {
       setAvailableBudget(prev => prev - selectedRecommendation.cost);
+      setApprovedByArea(prev => ({
+        ...prev,
+        [selectedRecommendation.area]: (prev[selectedRecommendation.area] || 0) + selectedRecommendation.cost
+      }));
       setRecommendations(prev => prev.filter(r => r.id !== selectedRecommendation.id));
       setDialogOpen(false);
       setResultDialog({ open: true, approved: true });
@@ -133,22 +144,14 @@ const Recommendations = () => {
         <div className="space-y-3">
           <p className="text-sm font-semibold text-foreground">Inversión mensual por área</p>
           <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Marketing</span>
-              <span className="font-medium text-foreground">$500</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Recursos Humanos</span>
-              <span className="font-medium text-foreground">$1,200</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Operaciones</span>
-              <span className="font-medium text-foreground">$800</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Ventas</span>
-              <span className="font-medium text-foreground">$1,500</span>
-            </div>
+            {Object.entries(approvedByArea)
+              .filter(([area]) => area !== "Toda la empresa")
+              .map(([area, amount]) => (
+                <div key={area} className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">{area}</span>
+                  <span className="font-medium text-foreground">${amount.toLocaleString()}</span>
+                </div>
+              ))}
           </div>
         </div>
       </aside>
