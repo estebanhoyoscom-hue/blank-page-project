@@ -274,24 +274,24 @@ const Dashboard = () => {
       <div className="mt-12 border-t border-border pt-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar de presupuesto */}
-          <div className="lg:w-64 space-y-6">
-            <div className="space-y-2">
-              <p className="text-sm text-muted-foreground">Presupuesto mensual</p>
-              <p className="text-3xl font-bold text-foreground">
+          <div className="lg:w-80 space-y-8">
+            <div className="space-y-3">
+              <p className="text-lg text-muted-foreground">Presupuesto mensual</p>
+              <p className="text-5xl font-bold text-foreground">
                 ${availableBudget.toLocaleString()}
               </p>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 de ${monthlyBudget.toLocaleString()} disponible
               </p>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-sm font-semibold text-foreground">Inversión mensual por área</p>
-              <div className="space-y-2">
+            <div className="space-y-4">
+              <p className="text-lg font-semibold text-foreground">Inversión mensual por área</p>
+              <div className="space-y-3">
                 {Object.entries(approvedByArea)
                   .filter(([area]) => area !== "Toda la empresa")
                   .map(([area, amount]) => (
-                    <div key={area} className="flex justify-between text-sm">
+                    <div key={area} className="flex justify-between text-base">
                       <span className="text-muted-foreground">{area}</span>
                       <span className="font-medium text-foreground">${amount.toLocaleString()}</span>
                     </div>
