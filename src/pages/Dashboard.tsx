@@ -1,5 +1,5 @@
 import KpiCard from "@/components/dashboard/KpiCard";
-import AreaCard from "@/components/dashboard/AreaCard";
+import PuzzleAreaCards from "@/components/dashboard/PuzzleAreaCards";
 import StressTrendChart from "@/components/dashboard/StressTrendChart";
 import BehumanLogo from "@/components/BehumanLogo";
 
@@ -41,12 +41,8 @@ const Dashboard = () => {
           <StressTrendChart />
         </div>
 
-        <h2 className="text-xl font-semibold text-foreground mb-4">Por área</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {areasData.map((area) => (
-            <AreaCard key={area.name} name={area.name} data={area.data} />
-          ))}
-        </div>
+        <h2 className="text-xl font-semibold text-foreground mb-6">Por área</h2>
+        <PuzzleAreaCards areas={areasData} />
       </div>
     </div>
   );
