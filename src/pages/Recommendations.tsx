@@ -32,38 +32,10 @@ interface PendingRecommendation {
 const pendingRecommendations: PendingRecommendation[] = [
   {
     id: "1",
-    title: "Pausas activas cada 2 horas",
-    area: "Marketing",
-    cost: 500,
-    priority: "alta",
-  },
-  {
-    id: "2",
-    title: "Sesiones de mindfulness grupales",
-    area: "Recursos Humanos",
-    cost: 1200,
-    priority: "alta",
-  },
-  {
-    id: "3",
-    title: "Programa de reconocimiento",
-    area: "Operaciones",
-    cost: 800,
-    priority: "media",
-  },
-  {
-    id: "4",
-    title: "Actividades de integración",
-    area: "Ventas",
-    cost: 1500,
-    priority: "media",
-  },
-  {
-    id: "5",
-    title: "Flexibilidad horaria",
+    title: "Paquete para partido de baloncesto",
     area: "Toda la empresa",
-    cost: 0,
-    priority: "baja",
+    cost: 2500,
+    priority: "media",
   },
 ];
 
