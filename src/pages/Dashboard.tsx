@@ -10,105 +10,105 @@ const areasData = [
   { name: "Ventas", data: { stress: 65, emotion: 60, anxiety: 52 } },
 ];
 
-// Datos de tendencia de estrés - 4 trimestres del año con comportamiento realista
+// Datos de tendencia de estrés - 4 trimestres del año, tendencia bajista con pico en Q2
 const stressTrendData = {
   general: [
-    { month: "Q1", value: 45 },
-    { month: "Q2", value: 52 },
-    { month: "Q3", value: 48 },
-    { month: "Q4", value: 71 },
-  ],
-  Marketing: [
-    { month: "Q1", value: 50 },
-    { month: "Q2", value: 58 },
-    { month: "Q3", value: 55 },
-    { month: "Q4", value: 72 },
-  ],
-  "Recursos Humanos": [
-    { month: "Q1", value: 38 },
-    { month: "Q2", value: 45 },
-    { month: "Q3", value: 42 },
-    { month: "Q4", value: 54 },
-  ],
-  Operación: [
-    { month: "Q1", value: 55 },
-    { month: "Q2", value: 62 },
-    { month: "Q3", value: 58 },
-    { month: "Q4", value: 78 },
-  ],
-  Ventas: [
-    { month: "Q1", value: 48 },
-    { month: "Q2", value: 68 },
-    { month: "Q3", value: 52 },
-    { month: "Q4", value: 65 },
-  ],
-};
-
-// Datos de tendencia de estado emocional - 4 trimestres
-const emotionTrendData = {
-  general: [
-    { month: "Q1", value: 72 },
-    { month: "Q2", value: 68 },
-    { month: "Q3", value: 70 },
-    { month: "Q4", value: 62 },
-  ],
-  Marketing: [
-    { month: "Q1", value: 52 },
-    { month: "Q2", value: 48 },
-    { month: "Q3", value: 50 },
-    { month: "Q4", value: 39 },
-  ],
-  "Recursos Humanos": [
-    { month: "Q1", value: 78 },
-    { month: "Q2", value: 75 },
-    { month: "Q3", value: 76 },
-    { month: "Q4", value: 71 },
-  ],
-  Operación: [
-    { month: "Q1", value: 65 },
-    { month: "Q2", value: 60 },
-    { month: "Q3", value: 62 },
-    { month: "Q4", value: 55 },
-  ],
-  Ventas: [
     { month: "Q1", value: 70 },
-    { month: "Q2", value: 72 },
-    { month: "Q3", value: 68 },
-    { month: "Q4", value: 60 },
-  ],
-};
-
-// Datos de tendencia de ansiedad - 4 trimestres
-const anxietyTrendData = {
-  general: [
-    { month: "Q1", value: 32 },
-    { month: "Q2", value: 38 },
-    { month: "Q3", value: 35 },
-    { month: "Q4", value: 39 },
+    { month: "Q2", value: 74 }, // pequeña subida
+    { month: "Q3", value: 62 },
+    { month: "Q4", value: 55 }, // termina más bajo que Q1
   ],
   Marketing: [
-    { month: "Q1", value: 48 },
-    { month: "Q2", value: 52 },
-    { month: "Q3", value: 50 },
-    { month: "Q4", value: 61 },
+    { month: "Q1", value: 68 },
+    { month: "Q2", value: 72 },
+    { month: "Q3", value: 60 },
+    { month: "Q4", value: 52 },
   ],
   "Recursos Humanos": [
-    { month: "Q1", value: 35 },
-    { month: "Q2", value: 40 },
-    { month: "Q3", value: 38 },
+    { month: "Q1", value: 60 },
+    { month: "Q2", value: 63 },
+    { month: "Q3", value: 55 },
     { month: "Q4", value: 48 },
   ],
   Operación: [
-    { month: "Q1", value: 52 },
-    { month: "Q2", value: 58 },
-    { month: "Q3", value: 55 },
-    { month: "Q4", value: 65 },
+    { month: "Q1", value: 75 },
+    { month: "Q2", value: 78 },
+    { month: "Q3", value: 66 },
+    { month: "Q4", value: 58 },
   ],
   Ventas: [
-    { month: "Q1", value: 40 },
+    { month: "Q1", value: 72 },
+    { month: "Q2", value: 76 },
+    { month: "Q3", value: 64 },
+    { month: "Q4", value: 57 },
+  ],
+};
+
+// Datos de tendencia de estado emocional - tendencia alcista con curva en Q3
+const emotionTrendData = {
+  general: [
+    { month: "Q1", value: 60 },
+    { month: "Q2", value: 68 },
+    { month: "Q3", value: 65 }, // pequeña bajada
+    { month: "Q4", value: 75 }, // termina más alto
+  ],
+  Marketing: [
+    { month: "Q1", value: 55 },
+    { month: "Q2", value: 62 },
+    { month: "Q3", value: 60 },
+    { month: "Q4", value: 70 },
+  ],
+  "Recursos Humanos": [
+    { month: "Q1", value: 70 },
+    { month: "Q2", value: 76 },
+    { month: "Q3", value: 73 },
+    { month: "Q4", value: 82 },
+  ],
+  Operación: [
+    { month: "Q1", value: 58 },
+    { month: "Q2", value: 64 },
+    { month: "Q3", value: 61 },
+    { month: "Q4", value: 69 },
+  ],
+  Ventas: [
+    { month: "Q1", value: 62 },
+    { month: "Q2", value: 69 },
+    { month: "Q3", value: 66 },
+    { month: "Q4", value: 74 },
+  ],
+};
+
+// Datos de tendencia de ansiedad - 4 trimestres, tendencia bajista
+const anxietyTrendData = {
+  general: [
+    { month: "Q1", value: 60 },
     { month: "Q2", value: 55 },
-    { month: "Q3", value: 45 },
-    { month: "Q4", value: 52 },
+    { month: "Q3", value: 50 },
+    { month: "Q4", value: 45 },
+  ],
+  Marketing: [
+    { month: "Q1", value: 65 },
+    { month: "Q2", value: 60 },
+    { month: "Q3", value: 54 },
+    { month: "Q4", value: 48 },
+  ],
+  "Recursos Humanos": [
+    { month: "Q1", value: 52 },
+    { month: "Q2", value: 48 },
+    { month: "Q3", value: 44 },
+    { month: "Q4", value: 40 },
+  ],
+  Operación: [
+    { month: "Q1", value: 68 },
+    { month: "Q2", value: 62 },
+    { month: "Q3", value: 56 },
+    { month: "Q4", value: 50 },
+  ],
+  Ventas: [
+    { month: "Q1", value: 63 },
+    { month: "Q2", value: 58 },
+    { month: "Q3", value: 52 },
+    { month: "Q4", value: 47 },
   ],
 };
 
@@ -124,7 +124,6 @@ const Dashboard = () => {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Contenido principal - izquierda */}
         <div className="flex-1">
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <KpiCard
               title="Estrés general de la compañía"
@@ -133,11 +132,7 @@ const Dashboard = () => {
               showPercentage
               invertColors
             />
-            <KpiCard
-              title="Ataques de ansiedad intervenidos"
-              value={4}
-              subtitle="Intervenciones realizadas este mes"
-            />
+            <KpiCard title="Ataques de ansiedad intervenidos" value={4} subtitle="Intervenciones realizadas este mes" />
             <KpiCard
               title="Alertas de casos críticos"
               value={7}
