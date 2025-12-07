@@ -32,7 +32,7 @@ interface PendingRecommendation {
 const pendingRecommendations: PendingRecommendation[] = [
   {
     id: "1",
-    title: "Paquete para partido de baloncesto",
+    title: "Paquete para ir a lago sol",
     area: "Marketing",
     cost: 100,
     priority: "media",
