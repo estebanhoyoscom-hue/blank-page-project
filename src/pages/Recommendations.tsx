@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 interface PendingRecommendation {
   id: string;
@@ -80,6 +81,13 @@ const Recommendations = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [resultDialog, setResultDialog] = useState<{ open: boolean; approved: boolean }>({ open: false, approved: false });
 
+  const spentBudget = monthlyBudget - availableBudget;
+  const chartData = [
+    { name: "Gastado", value: spentBudget },
+    { name: "Disponible", value: availableBudget },
+  ];
+  const CHART_COLORS = ["hsl(var(--primary))", "hsl(var(--muted))"]; 
+
   const handleRowClick = (rec: PendingRecommendation) => {
     setSelectedRecommendation(rec);
     setDialogOpen(true);
@@ -130,6 +138,43 @@ const Recommendations = () => {
       {/* Main Content */}
       <main className="flex-1 p-8">
         <div className="max-w-4xl mx-auto">
+          {/* Budget Section */}
+          <div className="flex items-center gap-8 mb-8 bg-card rounded-lg border border-border p-6">
+            <div className="flex-1">
+              <h2 className="text-xl font-bold text-foreground mb-2">Presupuesto de Inversión</h2>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">
+                  Total: <span className="font-semibold text-foreground">${monthlyBudget.toLocaleString()}</span>
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Gastado: <span className="font-semibold text-primary">${spentBudget.toLocaleString()}</span>
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Disponible: <span className="font-semibold text-foreground">${availableBudget.toLocaleString()}</span>
+                </p>
+              </div>
+            </div>
+            <div className="w-32 h-32">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={chartData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={35}
+                    outerRadius={55}
+                    paddingAngle={2}
+                    dataKey="value"
+                  >
+                    {chartData.map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={CHART_COLORS[index]} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
           <h1 className="text-2xl font-bold text-foreground mb-2">Inversión Mensual Diciembre</h1>
           <p className="text-muted-foreground mb-6">
             Haz clic en una petición para aprobar o rechazar el presupuesto.
