@@ -9,11 +9,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-interface TrendChartProps {
-  title: string;
-  metricLabel: string;
+interface MetricConfig {
+  key: string;
+  label: string;
   color: string;
+  isPercentage: boolean;
   data: Record<string, { month: string; value: number }[]>;
+}
+
+interface TrendChartProps {
+  metrics: MetricConfig[];
 }
 
 type AreaKey = "general" | "Marketing" | "Recursos Humanos" | "Operación" | "Ventas";
@@ -26,20 +31,41 @@ const areas: { key: AreaKey; label: string }[] = [
   { key: "Ventas", label: "Ventas" },
 ];
 
-const TrendChart = ({ title, metricLabel, color, data }: TrendChartProps) => {
+const TrendChart = ({ metrics }: TrendChartProps) => {
+  const [selectedMetric, setSelectedMetric] = useState(0);
   const [selectedArea, setSelectedArea] = useState<AreaKey>("general");
 
-  const chartData = data[selectedArea];
+  const currentMetric = metrics[selectedMetric];
+  const chartData = currentMetric.data[selectedArea];
 
   return (
     <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
+      {/* Metric selector buttons */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {metrics.map((metric, index) => (
+          <button
+            key={metric.key}
+            onClick={() => setSelectedMetric(index)}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              selectedMetric === index
+                ? "bg-primary text-primary-foreground"
+                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+            }`}
+          >
+            {metric.label}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+          <h3 className="text-lg font-semibold text-foreground">
+            Tendencia de {currentMetric.label.toLowerCase()}
+          </h3>
           <p className="text-sm text-muted-foreground">
             {selectedArea === "general"
-              ? `Nivel de ${metricLabel.toLowerCase()} general de la empresa`
-              : `Nivel de ${metricLabel.toLowerCase()} del área de ${selectedArea}`}
+              ? `Nivel de ${currentMetric.label.toLowerCase()} general de la empresa`
+              : `Nivel de ${currentMetric.label.toLowerCase()} del área de ${selectedArea}`}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -72,7 +98,7 @@ const TrendChart = ({ title, metricLabel, color, data }: TrendChartProps) => {
               domain={[0, 100]}
               stroke="hsl(var(--muted-foreground))"
               fontSize={12}
-              tickFormatter={(value) => `${value}%`}
+              tickFormatter={(value) => currentMetric.isPercentage ? `${value}%` : `${value}`}
             />
             <Tooltip
               contentStyle={{
@@ -81,21 +107,24 @@ const TrendChart = ({ title, metricLabel, color, data }: TrendChartProps) => {
                 borderRadius: "8px",
               }}
               labelStyle={{ color: "hsl(var(--foreground))" }}
-              formatter={(value: number) => [`${value}%`, metricLabel]}
+              formatter={(value: number) => [
+                currentMetric.isPercentage ? `${value}%` : value,
+                currentMetric.label
+              ]}
             />
             <Line
               type="monotone"
               dataKey="value"
-              stroke={color}
+              stroke={currentMetric.color}
               strokeWidth={3}
               dot={{
-                fill: color,
+                fill: currentMetric.color,
                 strokeWidth: 2,
                 r: 4,
               }}
               activeDot={{
                 r: 6,
-                fill: color,
+                fill: currentMetric.color,
               }}
             />
           </LineChart>
