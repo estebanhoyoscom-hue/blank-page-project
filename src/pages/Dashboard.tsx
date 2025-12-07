@@ -31,14 +31,20 @@ const Dashboard = () => {
             <KpiCard
               title="Estrés general de la compañía"
               value={68}
-              subtitle="Índice promedio de estrés percibido (0–100)"
+              subtitle="Índice promedio de estrés percibido"
+              showPercentage
             />
             <KpiCard
               title="Estado emocional promedio"
               value={62}
               subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
             />
-            <KpiCard title="Ansiedad general" value={55} subtitle="Nivel promedio de ansiedad (0–100)" />
+            <KpiCard 
+              title="Ansiedad general" 
+              value={55} 
+              subtitle="Nivel promedio de ansiedad" 
+              showPercentage
+            />
           </div>
 
           <div className="mb-8">
