@@ -177,12 +177,12 @@ const Recommendations = () => {
 
           <div className="bg-card rounded-lg border border-border overflow-hidden">
             <Table>
-              <TableHeader>
+              <TableHeader className="bg-muted/50">
                 <TableRow>
-                  <TableHead>Recomendación</TableHead>
-                  <TableHead>Área</TableHead>
-                  <TableHead>Costo</TableHead>
-                  <TableHead>Prioridad</TableHead>
+                  <TableHead className="font-bold text-foreground">Recomendación</TableHead>
+                  <TableHead className="font-bold text-foreground">Área</TableHead>
+                  <TableHead className="font-bold text-foreground">Costo</TableHead>
+                  <TableHead className="font-bold text-foreground">Prioridad</TableHead>
                   <TableHead className="w-10"></TableHead>
                 </TableRow>
               </TableHeader>
