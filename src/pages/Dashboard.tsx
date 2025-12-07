@@ -179,15 +179,14 @@ const Dashboard = () => {
               invertColors
             />
             <KpiCard
-              title="Estado emocional promedio"
-              value={62}
-              subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
+              title="Ataques de ansiedad intervenidos"
+              value={4}
+              subtitle="Intervenciones realizadas este mes"
             />
             <KpiCard
-              title="Ansiedad general"
-              value={39}
-              subtitle="Nivel promedio de ansiedad"
-              showPercentage
+              title="Alertas de casos críticos"
+              value={7}
+              subtitle="Casos que requieren atención inmediata"
               invertColors
             />
           </div>
