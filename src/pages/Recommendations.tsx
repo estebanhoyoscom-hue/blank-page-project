@@ -130,7 +130,7 @@ const Recommendations = () => {
       {/* Main Content */}
       <main className="flex-1 p-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Peticiones de Recomendación</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-2">Inversión Mensual Diciembre</h1>
           <p className="text-muted-foreground mb-6">
             Haz clic en una petición para aprobar o rechazar el presupuesto.
           </p>
