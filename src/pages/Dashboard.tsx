@@ -10,105 +10,105 @@ const areasData = [
   { name: "Ventas", data: { stress: 65, emotion: 60, anxiety: 52 } },
 ];
 
-// Datos de tendencia de estrés - 4 trimestres del año, tendencia bajista con pico en Q2
+// ESTRÉS – tendencia bajista con pico en Q2, pero variando bastante por área
 const stressTrendData = {
   general: [
-    { month: "Q1", value: 70 },
-    { month: "Q2", value: 74 }, // pequeña subida
-    { month: "Q3", value: 62 },
-    { month: "Q4", value: 55 }, // termina más bajo que Q1
+    { month: "Q1", value: 72 },
+    { month: "Q2", value: 76 }, // sube un poco
+    { month: "Q3", value: 63 },
+    { month: "Q4", value: 54 }, // termina bastante más bajo
   ],
   Marketing: [
-    { month: "Q1", value: 68 },
-    { month: "Q2", value: 72 },
-    { month: "Q3", value: 60 },
-    { month: "Q4", value: 52 },
+    { month: "Q1", value: 80 },
+    { month: "Q2", value: 85 }, // marketing muy exigido en Q2
+    { month: "Q3", value: 70 },
+    { month: "Q4", value: 60 },
   ],
   "Recursos Humanos": [
     { month: "Q1", value: 60 },
-    { month: "Q2", value: 63 },
+    { month: "Q2", value: 62 },
     { month: "Q3", value: 55 },
-    { month: "Q4", value: 48 },
+    { month: "Q4", value: 47 },
+  ],
+  Operación: [
+    { month: "Q1", value: 85 },
+    { month: "Q2", value: 88 },
+    { month: "Q3", value: 72 },
+    { month: "Q4", value: 65 },
+  ],
+  Ventas: [
+    { month: "Q1", value: 68 },
+    { month: "Q2", value: 73 },
+    { month: "Q3", value: 61 },
+    { month: "Q4", value: 52 },
+  ],
+};
+
+// ESTADO EMOCIONAL – tendencia alcista con curva en Q3, variando por área
+const emotionTrendData = {
+  general: [
+    { month: "Q1", value: 58 },
+    { month: "Q2", value: 66 },
+    { month: "Q3", value: 63 }, // ligera bajada
+    { month: "Q4", value: 76 }, // cierra alto
+  ],
+  Marketing: [
+    { month: "Q1", value: 50 },
+    { month: "Q2", value: 60 },
+    { month: "Q3", value: 57 },
+    { month: "Q4", value: 72 },
+  ],
+  "Recursos Humanos": [
+    { month: "Q1", value: 72 },
+    { month: "Q2", value: 78 },
+    { month: "Q3", value: 75 },
+    { month: "Q4", value: 85 },
+  ],
+  Operación: [
+    { month: "Q1", value: 52 },
+    { month: "Q2", value: 61 },
+    { month: "Q3", value: 58 },
+    { month: "Q4", value: 68 },
+  ],
+  Ventas: [
+    { month: "Q1", value: 60 },
+    { month: "Q2", value: 67 },
+    { month: "Q3", value: 64 },
+    { month: "Q4", value: 73 },
+  ],
+};
+
+// ANSIEDAD – tendencia bajista global, pero con subidas y bajadas intermedias
+const anxietyTrendData = {
+  general: [
+    { month: "Q1", value: 62 },
+    { month: "Q2", value: 66 }, // sube
+    { month: "Q3", value: 58 }, // baja
+    { month: "Q4", value: 50 }, // baja más
+  ],
+  Marketing: [
+    { month: "Q1", value: 70 },
+    { month: "Q2", value: 74 }, // pico en Q2
+    { month: "Q3", value: 63 }, // baja fuerte
+    { month: "Q4", value: 57 }, // sigue bajando
+  ],
+  "Recursos Humanos": [
+    { month: "Q1", value: 55 },
+    { month: "Q2", value: 53 }, // mejora
+    { month: "Q3", value: 58 }, // pequeño repunte
+    { month: "Q4", value: 48 }, // termina mejor que Q1
   ],
   Operación: [
     { month: "Q1", value: 75 },
-    { month: "Q2", value: 78 },
-    { month: "Q3", value: 66 },
-    { month: "Q4", value: 58 },
+    { month: "Q2", value: 80 }, // sube
+    { month: "Q3", value: 70 }, // baja
+    { month: "Q4", value: 68 }, // baja un poco más, pero sigue alta
   ],
   Ventas: [
-    { month: "Q1", value: 72 },
-    { month: "Q2", value: 76 },
-    { month: "Q3", value: 64 },
-    { month: "Q4", value: 57 },
-  ],
-};
-
-// Datos de tendencia de estado emocional - tendencia alcista con curva en Q3
-const emotionTrendData = {
-  general: [
-    { month: "Q1", value: 60 },
-    { month: "Q2", value: 68 },
-    { month: "Q3", value: 65 }, // pequeña bajada
-    { month: "Q4", value: 75 }, // termina más alto
-  ],
-  Marketing: [
-    { month: "Q1", value: 55 },
-    { month: "Q2", value: 62 },
-    { month: "Q3", value: 60 },
-    { month: "Q4", value: 70 },
-  ],
-  "Recursos Humanos": [
-    { month: "Q1", value: 70 },
-    { month: "Q2", value: 76 },
-    { month: "Q3", value: 73 },
-    { month: "Q4", value: 82 },
-  ],
-  Operación: [
-    { month: "Q1", value: 58 },
-    { month: "Q2", value: 64 },
-    { month: "Q3", value: 61 },
-    { month: "Q4", value: 69 },
-  ],
-  Ventas: [
-    { month: "Q1", value: 62 },
-    { month: "Q2", value: 69 },
-    { month: "Q3", value: 66 },
-    { month: "Q4", value: 74 },
-  ],
-};
-
-// Datos de tendencia de ansiedad - 4 trimestres, tendencia bajista
-const anxietyTrendData = {
-  general: [
-    { month: "Q1", value: 60 },
-    { month: "Q2", value: 55 },
-    { month: "Q3", value: 50 },
-    { month: "Q4", value: 45 },
-  ],
-  Marketing: [
-    { month: "Q1", value: 65 },
-    { month: "Q2", value: 60 },
-    { month: "Q3", value: 54 },
-    { month: "Q4", value: 48 },
-  ],
-  "Recursos Humanos": [
-    { month: "Q1", value: 52 },
-    { month: "Q2", value: 48 },
-    { month: "Q3", value: 44 },
-    { month: "Q4", value: 40 },
-  ],
-  Operación: [
     { month: "Q1", value: 68 },
-    { month: "Q2", value: 62 },
-    { month: "Q3", value: 56 },
-    { month: "Q4", value: 50 },
-  ],
-  Ventas: [
-    { month: "Q1", value: 63 },
-    { month: "Q2", value: 58 },
-    { month: "Q3", value: 52 },
-    { month: "Q4", value: 47 },
+    { month: "Q2", value: 65 }, // pequeña mejora
+    { month: "Q3", value: 70 }, // vuelve a subir
+    { month: "Q4", value: 60 }, // termina claramente mejor
   ],
 };
 
