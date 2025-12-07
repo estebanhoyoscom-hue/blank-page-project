@@ -6,6 +6,7 @@ interface KpiCardProps {
   subtitle: string;
   showPercentage?: boolean;
   invertColors?: boolean; // true = lower is better (stress, anxiety), false = higher is better (emotional)
+  forceColor?: "red" | "green" | "yellow"; // Force a specific color regardless of value
 }
 
 const getColorByValue = (value: number, invert: boolean) => {
@@ -34,9 +35,21 @@ const getTextColorByValue = (value: number, invert: boolean) => {
   }
 };
 
-const KpiCard = ({ title, value, subtitle, showPercentage = false, invertColors = false }: KpiCardProps) => {
-  const cardColor = getColorByValue(value, invertColors);
-  const textColor = getTextColorByValue(value, invertColors);
+const KpiCard = ({ title, value, subtitle, showPercentage = false, invertColors = false, forceColor }: KpiCardProps) => {
+  const getForceCardColor = () => {
+    if (forceColor === "red") return "bg-red-500/15 border-red-500/30";
+    if (forceColor === "green") return "bg-green-500/15 border-green-500/30";
+    if (forceColor === "yellow") return "bg-yellow-500/15 border-yellow-500/30";
+    return null;
+  };
+  const getForceTextColor = () => {
+    if (forceColor === "red") return "text-red-600";
+    if (forceColor === "green") return "text-green-600";
+    if (forceColor === "yellow") return "text-yellow-600";
+    return null;
+  };
+  const cardColor = getForceCardColor() || getColorByValue(value, invertColors);
+  const textColor = getForceTextColor() || getTextColorByValue(value, invertColors);
 
   return (
     <Card className={`shadow-md border ${cardColor}`}>

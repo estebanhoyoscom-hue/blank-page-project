@@ -137,7 +137,7 @@ const Dashboard = () => {
               title="Alertas de casos críticos"
               value={7}
               subtitle="Casos que requieren atención inmediata"
-              invertColors
+              forceColor="red"
             />
           </div>
 
