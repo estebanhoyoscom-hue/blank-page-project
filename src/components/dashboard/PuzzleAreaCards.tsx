@@ -24,12 +24,72 @@ const getEmotionTextColor = (value: number) => {
   return "text-green-600";
 };
 
-// SVG puzzle piece paths
+// SVG puzzle piece paths with proper connectors
 const puzzlePaths = {
-  "top-left": "M 0 0 L 120 0 L 120 50 C 130 50, 130 70, 120 70 L 120 120 L 70 120 C 70 130, 50 130, 50 120 L 0 120 Z",
-  "top-right": "M 0 0 L 120 0 L 120 120 L 70 120 C 70 130, 50 130, 50 120 L 0 120 L 0 70 C -10 70, -10 50, 0 50 Z",
-  "bottom-left": "M 0 0 L 50 0 C 50 -10, 70 -10, 70 0 L 120 0 L 120 50 C 130 50, 130 70, 120 70 L 120 120 L 0 120 Z",
-  "bottom-right": "M 0 0 L 50 0 C 50 -10, 70 -10, 70 0 L 120 0 L 120 120 L 0 120 L 0 70 C -10 70, -10 50, 0 50 Z",
+  // Top-left: bump right, bump bottom
+  "top-left": `
+    M 0 0 
+    L 100 0 
+    L 100 40 
+    C 100 40, 100 35, 110 35 
+    C 125 35, 125 65, 110 65 
+    C 100 65, 100 60, 100 60 
+    L 100 100 
+    L 60 100 
+    C 60 100, 65 100, 65 110 
+    C 65 125, 35 125, 35 110 
+    C 35 100, 40 100, 40 100 
+    L 0 100 
+    Z
+  `,
+  // Top-right: hole left, bump bottom
+  "top-right": `
+    M 0 0 
+    L 100 0 
+    L 100 100 
+    L 60 100 
+    C 60 100, 65 100, 65 110 
+    C 65 125, 35 125, 35 110 
+    C 35 100, 40 100, 40 100 
+    L 0 100 
+    L 0 60 
+    C 0 60, 0 65, -10 65 
+    C -25 65, -25 35, -10 35 
+    C 0 35, 0 40, 0 40 
+    Z
+  `,
+  // Bottom-left: bump right, hole top
+  "bottom-left": `
+    M 0 0 
+    L 40 0 
+    C 40 0, 35 0, 35 -10 
+    C 35 -25, 65 -25, 65 -10 
+    C 65 0, 60 0, 60 0 
+    L 100 0 
+    L 100 40 
+    C 100 40, 100 35, 110 35 
+    C 125 35, 125 65, 110 65 
+    C 100 65, 100 60, 100 60 
+    L 100 100 
+    L 0 100 
+    Z
+  `,
+  // Bottom-right: hole left, hole top
+  "bottom-right": `
+    M 0 0 
+    L 40 0 
+    C 40 0, 35 0, 35 -10 
+    C 35 -25, 65 -25, 65 -10 
+    C 65 0, 60 0, 60 0 
+    L 100 0 
+    L 100 100 
+    L 0 100 
+    L 0 60 
+    C 0 60, 0 65, -10 65 
+    C -25 65, -25 35, -10 35 
+    C 0 35, 0 40, 0 40 
+    Z
+  `,
 };
 
 const PuzzleCard = ({ name, data, position }: PuzzleCardProps) => {
@@ -42,10 +102,10 @@ const PuzzleCard = ({ name, data, position }: PuzzleCardProps) => {
       className="relative cursor-pointer transition-transform duration-300 hover:scale-105 hover:z-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ width: "160px", height: "160px" }}
+      style={{ width: "140px", height: "140px" }}
     >
       <svg
-        viewBox="-10 -10 140 140"
+        viewBox="-30 -30 160 160"
         className="absolute inset-0 w-full h-full drop-shadow-md"
         style={{ overflow: "visible" }}
       >
@@ -107,9 +167,7 @@ const PuzzleAreaCards = ({ areas }: PuzzleAreaCardsProps) => {
       <div 
         className="grid grid-cols-2"
         style={{ 
-          gap: "0px",
-          marginLeft: "-10px",
-          marginTop: "-10px"
+          gap: "10px",
         }}
       >
         {areas.slice(0, 4).map((area, index) => (
