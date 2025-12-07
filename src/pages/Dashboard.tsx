@@ -169,10 +169,6 @@ const Dashboard = () => {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Contenido principal - izquierda */}
         <div className="flex-1">
-          <p className="text-muted-foreground mb-8">
-            Este dashboard muestra el estado emocional de la compañía a partir de datos psicométricos anónimos de los
-            empleados.
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <KpiCard
