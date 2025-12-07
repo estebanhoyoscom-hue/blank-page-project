@@ -159,21 +159,14 @@ const Recommendations = () => {
       {/* Main Content */}
       <main className="flex-1 p-8">
         <div className="max-w-4xl mx-auto">
-          {/* Budget Section */}
-          <div className="flex items-center gap-8 mb-8 bg-card rounded-lg border border-border p-6">
-            <div className="flex-1">
-              <h2 className="text-xl font-bold text-foreground mb-4">Inversión Mensual Diciembre</h2>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="font-semibold text-primary">${spentBudget.toLocaleString()}</span>
-                  <span className="font-semibold text-foreground">${monthlyBudget.toLocaleString()}</span>
-                </div>
-                <Progress value={spentPercentage} className="h-3" />
-              </div>
+          <h2 className="text-xl font-bold text-foreground mb-4">Inversión Mensual Diciembre</h2>
+          <div className="space-y-2 mb-8">
+            <div className="flex justify-between text-sm">
+              <span className="font-semibold text-primary">${spentBudget.toLocaleString()}</span>
+              <span className="font-semibold text-foreground">${monthlyBudget.toLocaleString()}</span>
             </div>
+            <Progress value={spentPercentage} className="h-3" />
           </div>
-
-          <h1 className="text-2xl font-bold text-foreground mb-6">Peticiones Pendientes</h1>
 
           <div className="bg-card rounded-lg border border-border overflow-hidden">
             <Table>
