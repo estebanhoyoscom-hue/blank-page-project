@@ -73,7 +73,7 @@ interface PuzzleAreaCardsProps {
 
 const PuzzleAreaCards = ({ areas }: PuzzleAreaCardsProps) => {
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {areas.slice(0, 4).map((area) => (
         <AreaCard
           key={area.name}
