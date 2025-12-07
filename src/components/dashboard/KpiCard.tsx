@@ -5,23 +5,38 @@ interface KpiCardProps {
   value: number;
   subtitle: string;
   showPercentage?: boolean;
+  invertColors?: boolean; // true = lower is better (stress, anxiety), false = higher is better (emotional)
 }
 
-const getColorByValue = (value: number) => {
-  if (value <= 40) return "bg-red-500/15 border-red-500/30";
-  if (value <= 70) return "bg-yellow-500/15 border-yellow-500/30";
-  return "bg-green-500/15 border-green-500/30";
+const getColorByValue = (value: number, invert: boolean) => {
+  if (invert) {
+    // For stress/anxiety: low = green, high = red
+    if (value <= 40) return "bg-green-500/15 border-green-500/30";
+    if (value <= 70) return "bg-yellow-500/15 border-yellow-500/30";
+    return "bg-red-500/15 border-red-500/30";
+  } else {
+    // For emotional state: low = red, high = green
+    if (value <= 40) return "bg-red-500/15 border-red-500/30";
+    if (value <= 70) return "bg-yellow-500/15 border-yellow-500/30";
+    return "bg-green-500/15 border-green-500/30";
+  }
 };
 
-const getTextColorByValue = (value: number) => {
-  if (value <= 40) return "text-red-600";
-  if (value <= 70) return "text-yellow-600";
-  return "text-green-600";
+const getTextColorByValue = (value: number, invert: boolean) => {
+  if (invert) {
+    if (value <= 40) return "text-green-600";
+    if (value <= 70) return "text-yellow-600";
+    return "text-red-600";
+  } else {
+    if (value <= 40) return "text-red-600";
+    if (value <= 70) return "text-yellow-600";
+    return "text-green-600";
+  }
 };
 
-const KpiCard = ({ title, value, subtitle, showPercentage = false }: KpiCardProps) => {
-  const cardColor = getColorByValue(value);
-  const textColor = getTextColorByValue(value);
+const KpiCard = ({ title, value, subtitle, showPercentage = false, invertColors = false }: KpiCardProps) => {
+  const cardColor = getColorByValue(value, invertColors);
+  const textColor = getTextColorByValue(value, invertColors);
 
   return (
     <Card className={`shadow-md border ${cardColor}`}>
