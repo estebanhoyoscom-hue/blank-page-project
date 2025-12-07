@@ -1,6 +1,7 @@
 import KpiCard from "@/components/dashboard/KpiCard";
 import AreaCard from "@/components/dashboard/AreaCard";
 import StressTrendChart from "@/components/dashboard/StressTrendChart";
+import BehumanLogo from "@/components/BehumanLogo";
 
 const areasData = [
   { name: "Marketing", data: { stress: 72, emotion: 39, anxiety: 61 } },
@@ -11,7 +12,10 @@ const areasData = [
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-background p-6 md:p-10">
+    <div className="min-h-screen bg-background p-6 md:p-10 relative">
+      <div className="absolute top-4 right-4 md:top-6 md:right-6">
+        <BehumanLogo size={40} />
+      </div>
       <div className="max-w-5xl mx-auto">
         <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Dashboard emocional de la compañía</h1>
         <p className="text-muted-foreground mb-8">
