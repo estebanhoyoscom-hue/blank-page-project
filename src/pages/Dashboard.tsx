@@ -1,5 +1,6 @@
 import KpiCard from "@/components/dashboard/KpiCard";
 import AreaCard from "@/components/dashboard/AreaCard";
+import StressTrendChart from "@/components/dashboard/StressTrendChart";
 
 const areasData = [
   { name: "Marketing", data: { stress: 72, emotion: 39, anxiety: 61 } },
@@ -30,6 +31,10 @@ const Dashboard = () => {
             subtitle="Combinación de ánimo, estrés y ansiedad (0–100)"
           />
           <KpiCard title="Ansiedad general" value={55} subtitle="Nivel promedio de ansiedad (0–100)" />
+        </div>
+
+        <div className="mb-8">
+          <StressTrendChart />
         </div>
 
         <h2 className="text-xl font-semibold text-foreground mb-4">Por área</h2>
