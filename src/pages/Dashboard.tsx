@@ -118,7 +118,7 @@ const Dashboard = () => {
       {/* Header con logo y título */}
       <div className="flex items-center gap-3 mb-8">
         <BehumanLogo size={40} />
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground">BeHuman</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground">behuman</h1>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
