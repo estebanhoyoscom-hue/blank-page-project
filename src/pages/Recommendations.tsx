@@ -124,7 +124,7 @@ const Recommendations = () => {
           <span className="text-xl font-bold text-foreground">BeHuman</span>
         </div>
         
-        <div className="space-y-2">
+        <div className="space-y-2 mb-8">
           <p className="text-sm text-muted-foreground">Presupuesto mensual</p>
           <p className="text-3xl font-bold text-foreground">
             ${availableBudget.toLocaleString()}
@@ -132,6 +132,28 @@ const Recommendations = () => {
           <p className="text-xs text-muted-foreground">
             de ${monthlyBudget.toLocaleString()} disponible
           </p>
+        </div>
+
+        <div className="space-y-3">
+          <p className="text-sm font-semibold text-foreground">Inversión mensual por área</p>
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Marketing</span>
+              <span className="font-medium text-foreground">$500</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Recursos Humanos</span>
+              <span className="font-medium text-foreground">$1,200</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Operaciones</span>
+              <span className="font-medium text-foreground">$800</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Ventas</span>
+              <span className="font-medium text-foreground">$1,500</span>
+            </div>
+          </div>
         </div>
       </aside>
 
